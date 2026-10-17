@@ -1,0 +1,23 @@
+CREATE DATABASE IF NOT EXISTS elite_high_school CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE elite_high_school;
+
+CREATE TABLE IF NOT EXISTS applications (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  student_name VARCHAR(120) NOT NULL,
+  dob DATE NULL,
+  class_applying VARCHAR(20) NOT NULL,
+  guardian_name VARCHAR(120) NOT NULL,
+  phone VARCHAR(30) NOT NULL,
+  email VARCHAR(120) NOT NULL,
+  notes TEXT NULL,
+  status ENUM('New','Contacted','Admitted','Declined') NOT NULL DEFAULT 'New',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS messages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  email VARCHAR(120) NOT NULL,
+  message TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
